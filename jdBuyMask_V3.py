@@ -107,13 +107,13 @@ session.cookies = cookiesJar
 def validate_cookies():
     for flag in range(1, 3):
         try:
-            targetURL = 'https://order.jd.com/center/list.action'
+            targetURL = 'https://wqs.jd.com/order/orderlist_merge.shtml'
             payload = {
                 'rid': str(int(time.time() * 1000)),
             }
             resp = session.get(url=targetURL, params=payload, allow_redirects=False)
             if resp.status_code == requests.codes.OK:
-                logger.info('登录成功')
+                logger.info('登录成功') 
                 return True
             else:
                 logger.info('第【%s】次请重新获取cookie', flag)
@@ -456,6 +456,56 @@ def check_Config():
         getconfig()
         configMd5 = nowMd5
 
+"""检查直播币余额"""
+def check_live_balance(checksession):
+    start = int(time.time() * 1000)
+    skuidString = ','.join(skuids)
+    callback = 'jQuery' + str(random.randint(1000000, 9999999))
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/531.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+        "Referer": "https://wqs.jd.com/pglive/index_main/index.html?sceneval=2&ptag=138631.36.18",
+        "Connection": "keep-alive",
+        "Host": "wq.jd.com"
+    }
+    #
+    url = 'https://wq.jd.com/vaccount/GetAccountInfo'
+    payload = {
+        'source': 'pglive',
+        'dwAccountType': 22,
+        'g_login_type': 1,
+        # 'skuIds': skuidString,
+        # 'area': area,
+        'callback': 'jsonpCBKG',
+        '_': int(time.time() * 1000),
+    }
+    resp = checksession.get(url=url, params=payload, headers=headers)
+    inStockSkuid = []
+    nohasSkuid = []
+    unUseSkuid = []
+    
+    resultText = resp.text
+    resultText = resultText.replace('jsonpCBKG(', '')
+    resultText = resultText.replace(')', '')
+    userInfoJson = json.loads(resultText)
+    
+    logger.info('账户信息：' + format(userInfoJson))
+    exit()
+    for sku_id, info in parse_json(resp.text).items():
+        sku_state = info.get('skuState')  # 商品是否上架
+        stock_state = info.get('StockState')  # 商品库存状态
+        if sku_state == 1 and stock_state in (33, 40):
+            inStockSkuid.append(sku_id)
+        if sku_state == 0:
+            unUseSkuid.append(sku_id)
+        if stock_state == 34:
+            nohasSkuid.append(sku_id)
+    logger.info('检测[%s]个口罩有货，[%s]个口罩无货，[%s]个口罩下柜，耗时[%s]ms', len(inStockSkuid), len(nohasSkuid), len(unUseSkuid),
+                int(time.time() * 1000) - start)
+
+    if len(unUseSkuid) > 0:
+        logger.info('[%s]口罩已经下柜', ','.join(unUseSkuid))
+    return inStockSkuid
 
 # _setDNSCache()
 if len(skuids) != 1:
@@ -469,9 +519,9 @@ while (1):
             logger.info('当前是V3版本')
             validate_cookies()
             getUsername()
-            select_all_cart_item()
-            remove_item()
-            add_item_to_cart(skuId)
+            # select_all_cart_item()
+            # remove_item()
+            # add_item_to_cart(skuId)
         # 检测配置文件修改
         if int(time.time()) - configTime >= 60:
             check_Config()
@@ -479,6 +529,8 @@ while (1):
         flag += 1
         # 检查库存模块
         inStockSkuid = check_stock(checksession, skuids, area)
+        # 检查直播币余额
+        check_live_balance(checksession)
         # 自动下单模块
         V3AutoBuy(inStockSkuid)
         # 休眠模块
