@@ -15,6 +15,7 @@ from jdlogger import logger
 from message import message
 from util import *
 from util import _setDNSCache
+import requests
 
 '''
 需要修改
@@ -78,7 +79,6 @@ checksession.headers = {
 }
 manual_cookies = {}
 
-
 def get_tag_value(tag, key='', index=0):
     if key:
         value = tag[index].get(key)
@@ -107,12 +107,14 @@ session.cookies = cookiesJar
 def validate_cookies():
     for flag in range(1, 3):
         try:
-            targetURL = 'https://wqs.jd.com/order/orderlist_merge.shtml'
+            targetURL = 'https://wqs.jd.com/order/orderlist_merge.shtml?orderType=all&ptag=7155.1.11&sceneval=2'
             payload = {
                 'rid': str(int(time.time() * 1000)),
             }
             resp = session.get(url=targetURL, params=payload, allow_redirects=False)
+            logger.info("validate_cdookies log:" + format(resp))
             if resp.status_code == requests.codes.OK:
+                logger.info("validate_cdookies log:" + format(resp.status_code))
                 logger.info('登录成功') 
                 return True
             else:
@@ -142,6 +144,7 @@ def getUsername():
     resultText = resultText.replace(')', '')
     usernameJson = json.loads(resultText)
     logger.info('登录账号名称' + usernameJson['nick'])
+    logger.info('登录账号名称1111111111111' + format(usernameJson))
 
 
 '''
@@ -480,6 +483,7 @@ def check_live_balance(checksession):
         '_': int(time.time() * 1000),
     }
     resp = checksession.get(url=url, params=payload, headers=headers)
+
     inStockSkuid = []
     nohasSkuid = []
     unUseSkuid = []
