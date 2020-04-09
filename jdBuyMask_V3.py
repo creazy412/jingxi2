@@ -16,6 +16,7 @@ from message import message
 from util import *
 from util import _setDNSCache
 import requests
+from urllib import request
 
 '''
 需要修改
@@ -472,7 +473,23 @@ def check_live_balance(checksession):
         "Host": "wq.jd.com"
     }
     #
-    url = 'https://wq.jd.com/vaccount/GetAccountInfo'
+    # url = 'https://wq.jd.com/vaccount/GetAccountInfo?source=pglive&dwAccountType=22&strPrePin=200210&_=1586436983828&sceneval=2&g_login_type=1&callback=jsonpCBKD&g_ty=ls'
+    url = 'https://wq.jd.com/pingoufeed/GetItemList?source=live&filter=2&recommendkey=5064&pageno=1&pagesize=10&_=1586436984789&sceneval=2&g_login_type=1&callback=jsonpCBKE&g_ty=ls'
+    #浏览器登录后得到的cookie，也就是刚才复制的字符串
+    cookie_str = r'shshshfpa=490f7e17-1abe-d98b-e7ad-820b5f44f42f-1571622018; shshshfpb=khsT03U5oDfyZ%2FoU01w2Bfw%3D%3D; pinId=p9q4GZ0bvhUviOw3JTn08g; __jdu=1433937085; unpl=V2_ZzNtbUsHRBZzXRUEfhlUBWJTFw4RAkRGdgpBUSlOWwJjBUZdclRCFnQUR1ZnGVoUZwQZWUtcQRJFCEFkfxtfDGADEFRyZ3MWdThHZHscXgdvARRcS1NzJXIIT2R7GloGbgIUXHIEE0ojWxYLLUYZNWYzE21DZxF7rb7wjN6oQNHNjMfV1RpDEHcKTlZ9GFUBVwIiXg%3d%3d; PCSYCityID=CN_0_0_0; __jdv=76161171%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1586093544852; areaId=19; ipLoc-djd=19-1607-0-0; TrackID=1H6V0HWVPQH1CTcFqAalsPMA_2Yl6dGufZZX4pjjLKXbVyhbCwXEJDgDlvxINjb782x7OPHVMXmGjcinyVtp61E3oYjS7DgjtzNdfn8kT4Fo; pin=754634469_m; unick=%E7%8C%AE%E6%B6%9B%E5%8B%87; _tp=%2BWZS%2FWDHCOCSXWgN63a%2BSw%3D%3D; _pst=754634469_m; __jda=76161171.1433937085.1565602967.1586224508.1586246687.26; __jdc=76161171; retina=1; webp=1; visitkey=43179755944294334; sc_width=400; cid=9; block_call_jdapp=11; 3AB9D23F7A4B3C9B=UHLJPPNJYGNUTGKGPQXUX57EJ4ZH2RY725YSYIBMXHRXKS2L3PEIWIRWDYNB3FNKX6MZQHMUWVI232ZXYIKIYB3H34; TrackerID=PfsbMM99_f6cYPC2j1d0p5WoBynYYNOZA3zNHSe7-qY0ejp80QNPNQb1blhX0Bt7r1QQJasl-k5ySRQixI0nCj57S4haH-d4HQCdEwqoqJL5wwenQYeq9YKS9fhdkXVT; pt_key=AAJejDntADBbM7ThgBke0AaWkW4rxUm-PRmBUGiiUuK_AiQCWDB1A_wOrFzIzie4MuL-fcOrAMQ; pt_pin=754634469_m; pt_token=n8vrn3dl; pwdt_id=754634469_m; shshshfp=63dc7904ead941e56020457b351c26bf; wxa_level=1; wqmnx1=MDEyNjM3Ni9kZ25peHNsZzE3Nzl6LnVyMHNsOGx0NkwgIC85ICAvMWZkLTVRT0YmKQ%3D%3D; __wga=1586436982037.1586436962886.1586247616596.1586247616596.4.2; PPRD_P=CT.138631.36.18-UUID.1433937085; shshshsID=29999b7561be5271735065da1b043785_4_1586436982641'
+    req = requests.get(url)
+    print(req.text)
+    exit()
+    #设置cookie
+    req.add_header('cookie', cookie_str)
+    #设置请求头
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36')
+
+    resp = request.urlopen(req)
+
+    print(resp.read().decode('utf-8'))
+    exit()
+
     payload = {
         'source': 'pglive',
         'dwAccountType': 22,
@@ -532,11 +549,11 @@ while (1):
         logger.info('第' + str(flag) + '次 ')
         flag += 1
         # 检查库存模块
-        inStockSkuid = check_stock(checksession, skuids, area)
+        # inStockSkuid = check_stock(checksession, skuids, area)
         # 检查直播币余额
         check_live_balance(checksession)
         # 自动下单模块
-        V3AutoBuy(inStockSkuid)
+        # V3AutoBuy(inStockSkuid)
         # 休眠模块
         timesleep = random.randint(1, 3) / 10
         time.sleep(timesleep)
