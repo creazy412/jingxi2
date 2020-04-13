@@ -2,6 +2,7 @@ import requests
 import time
 import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
+import sys
 
 def exchange():
     cookies = {
@@ -64,11 +65,15 @@ def cycle():
         exchange()
         time.sleep(1)
 
+def stopCycle(self, scheduler):
+    scheduler.remove()
+
 # def main():
 #创建调度器：BlockingScheduler
 scheduler = BlockingScheduler()
 # 定时脚本任务
-scheduler.add_job(cycle, 'date', run_date='2020-04-13 21:37:00')
+scheduler.add_job(cycle, 'date', run_date='2020-04-13 23:59:30')
+# scheduler.add_job(stopCycle, 'date', run_date='2020-04-13 21:50:10', args=['scheduler'])
 scheduler.start()
     
 
