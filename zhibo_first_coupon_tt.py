@@ -5,6 +5,10 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import sys
 
 def exchange():
+    t = time.time()
+    microsecond = int(round(t * 1000))
+    activeDate = time.strftime("%Y%m%d", time.localtime())
+
     cookies = {
         '__jdu': '15510555295861266323195',
         'shshshfpa': '35670fbc-6fb1-0e99-5b6c-1d92b073e604-1551055531',
@@ -45,10 +49,10 @@ def exchange():
     }
 
     params = (
-        ('active', 'zhiboduihuanhb2020412'),
+        ('active', 'zhiboduihuanhb' + activeDate),
         ('level', '1'), # 1 20 元的优惠券
         ('platform', '4'),
-        ('_', '1586652179175'),
+        ('_', microsecond),
         ('sceneval', '2'),
         ('g_login_type', '1'),
         ('callback', 'jsonpCBKM'),
@@ -72,7 +76,7 @@ def stopCycle(self, scheduler):
 #创建调度器：BlockingScheduler
 scheduler = BlockingScheduler()
 # 定时脚本任务
-scheduler.add_job(cycle, 'date', run_date='2020-04-13 23:59:30')
+scheduler.add_job(cycle, 'date', run_date='2020-04-14 13:41:00')
 # scheduler.add_job(stopCycle, 'date', run_date='2020-04-13 21:50:10', args=['scheduler'])
 scheduler.start()
     
