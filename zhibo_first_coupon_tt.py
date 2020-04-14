@@ -76,7 +76,7 @@ def stopCycle(self, scheduler):
 #创建调度器：BlockingScheduler
 scheduler = BlockingScheduler()
 # 定时脚本任务
-scheduler.add_job(cycle, 'date', run_date='2020-04-14 13:41:00')
+scheduler.add_job(cycle, 'date', run_date='2020-04-14 23:59:50')
 # scheduler.add_job(stopCycle, 'date', run_date='2020-04-13 21:50:10', args=['scheduler'])
 scheduler.start()
     
