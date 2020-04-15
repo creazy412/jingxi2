@@ -39,9 +39,17 @@ def exchange():
     print(localtime, '兑换结果:', response.text)
 
 def cycle():
+    """
+    循环调用
+    """
+    loopCounter = 1
+
     while True:
+        if loopCounter > 500:
+            break
         exchange()
         time.sleep(2)
+        loopCounter += 1
 
 def stopCycle(self, scheduler):
     scheduler.remove()
