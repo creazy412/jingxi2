@@ -46,11 +46,13 @@ def cycle():
 def stopCycle(self, scheduler):
     scheduler.remove()
 
+startDate = time.strftime("%Y-%m-%d", time.localtime()) + ' 23:58:00'
+
 # def main():
 # 创建调度器：BlockingScheduler
 scheduler = BlockingScheduler()
 # 定时脚本任务
-scheduler.add_job(cycle, 'date', run_date='2020-04-14 23:59:50')
+scheduler.add_job(cycle, 'date', run_date = startDate)
 scheduler.start()
 
 # 调试
