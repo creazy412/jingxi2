@@ -41,30 +41,36 @@ def exchange():
 def cycle():
     """
     循环调用
+    如果当前时间大于整点+1分额时候 continue
     """
     loopCounter = 1
+    currentTimestamp = int(time.time())
+    hourTimestampFormat = time.strftime("%Y-%m-%d %H:00:00", time.localtime())
+    hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
+    print(hourTimestampArray)
+    hourTimestamp = int(time.mktime(hourTimestampArray) + 60)
 
     while True:
-        if loopCounter > 500:
-            break
+        if currentTimestamp > hourTimestamp:
+            # print('currentTimestamp ', currentTimestamp)
+            # print(hourTimestamp)
+            # print('continue', loopCounter)
+            # loopCounter += 1
+            continue
         exchange()
-        time.sleep(2)
-        loopCounter += 1
+        time.sleep(1)
 
-def stopCycle(self, scheduler):
-    scheduler.remove()
-
-startDate = time.strftime("%Y-%m-%d", time.localtime()) + ' 23:58:00'
+# startDate = time.strftime("%Y-%m-%d", time.localtime()) + ' 23:58:00'
 
 # def main():
 # 创建调度器：BlockingScheduler
-scheduler = BlockingScheduler()
-# 定时脚本任务
-scheduler.add_job(cycle, 'date', run_date = startDate)
-scheduler.start()
+# scheduler = BlockingScheduler()
+# # 定时脚本任务
+# scheduler.add_job(cycle, 'date', run_date = startDate)
+# scheduler.start()
 
 # 调试
-# cycle()
+cycle()
     
 
 # if __name__ == "__main__":
