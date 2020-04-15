@@ -65,9 +65,17 @@ def exchange():
     print(localtime, '兑换结果:', response.text)
 
 def cycle():
+    """
+    循环调用
+    """
+    loopCounter = 1
+
     while True:
+        if loopCounter > 500:
+            break
         exchange()
         time.sleep(1)
+        loopCounter += 1
 
 def stopCycle(self, scheduler):
     scheduler.remove()
@@ -76,10 +84,12 @@ def stopCycle(self, scheduler):
 #创建调度器：BlockingScheduler
 scheduler = BlockingScheduler()
 # 定时脚本任务
-scheduler.add_job(cycle, 'date', run_date='2020-04-14 23:59:50')
+scheduler.add_job(cycle, 'date', run_date='2020-04-15 08:44:00')
 # scheduler.add_job(stopCycle, 'date', run_date='2020-04-13 21:50:10', args=['scheduler'])
 scheduler.start()
     
+# 调试
+# cycle()
 
 # if __name__ == "__main__":
 #     main()
