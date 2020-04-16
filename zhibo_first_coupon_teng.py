@@ -43,14 +43,13 @@ def cycle():
     循环调用
     如果当前时间大于整点+1分额时候 continue
     """
-    loopCounter = 1
-    currentTimestamp = int(time.time())
-    hourTimestampFormat = time.strftime("%Y-%m-%d %H:00:00", time.localtime())
-    hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
-    print(hourTimestampArray)
-    hourTimestamp = int(time.mktime(hourTimestampArray) + 60)
 
     while True:
+        currentTimestamp = int(time.time())
+        hourTimestampFormat = time.strftime("%Y-%m-%d %H:00:00", time.localtime())
+        hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
+        # print(hourTimestampArray)
+        hourTimestamp = int(time.mktime(hourTimestampArray) + 60)
         if currentTimestamp > hourTimestamp:
             # print('currentTimestamp ', currentTimestamp)
             # print(hourTimestamp)
