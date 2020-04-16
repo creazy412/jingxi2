@@ -7,7 +7,7 @@ import sys
 def exchange():
     t = time.time()
     microsecond = int(round(t * 1000))
-    activeDate = time.strftime("%Y%m%d", time.localtime())
+    activeDate = time.strftime("%Y%#m%d", time.localtime())
 
     cookies = {
         '__jdu': '15510555295861266323195',
@@ -83,7 +83,7 @@ def cycle():
             # loopCounter += 1
             continue
         exchange()
-        time.sleep(1)
+        # time.sleep(1)
 
 # def main():
 #创建调度器：BlockingScheduler
