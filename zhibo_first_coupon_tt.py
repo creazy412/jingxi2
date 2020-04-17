@@ -83,7 +83,7 @@ def cycle():
             # loopCounter += 1
             continue
         exchange()
-        # time.sleep(1)
+        time.sleep(1)
 
 # def main():
 #创建调度器：BlockingScheduler
