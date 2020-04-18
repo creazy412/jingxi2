@@ -3,6 +3,7 @@ import time
 import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 import sys
+from util import *
 
 def exchange():
     t = time.time()
@@ -61,6 +62,14 @@ def exchange():
 
     response = requests.get('https://wq.jd.com/jxlivetask/DrawAward', headers=headers, params=params, cookies=cookies)
     localtime = time.asctime( time.localtime(time.time()) )
+
+    # 根据返回结果处理
+    resultText = response.text.replace('jsonpCBKM(', '')
+    resultText = resultText.replace(')', '')
+    resultText = resultText.replace(';', '')
+    resultTextJson = json.loads(resultText)
+    if resultTextJson['msg'] == 'success':
+        exit()
 
     print(localtime, '兑换结果:', response.text)
 
