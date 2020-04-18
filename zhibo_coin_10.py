@@ -10,6 +10,9 @@ def exchange():
     microsecond = int(round(t * 1000))
     activeDate = time.strftime("%Y%#m%d", time.localtime())
 
+    """
+    替换
+    """
     cookies = {
         '__jdu': '15510555295861266323195',
         'shshshfpa': '35670fbc-6fb1-0e99-5b6c-1d92b073e604-1551055531',
@@ -38,6 +41,9 @@ def exchange():
         'promotejs': 'c8d693fcf349bee790cc93ec6cb2dfa3aZd1036kBd',
     }
 
+    """
+    替换
+    """
     headers = {
         'Connection': 'keep-alive',
         'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36',
@@ -69,6 +75,7 @@ def exchange():
     resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
     if resultTextJson['msg'] == 'success':
+        print(localtime, '兑换成功！')
         exit()
 
     print(localtime, '兑换结果:', response.text)
@@ -76,15 +83,14 @@ def exchange():
 def cycle():
     """
     循环调用
-    如果当前时间大于整点+1分额时候 continue
+    如果当前时间大于整点+30秒的时候 continue
     """
-
     while True:
         currentTimestamp = int(time.time())
         hourTimestampFormat = time.strftime("%Y-%m-%d %H:00:00", time.localtime())
         hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
         # print(hourTimestampArray)
-        hourTimestamp = int(time.mktime(hourTimestampArray) + 60)
+        hourTimestamp = int(time.mktime(hourTimestampArray) + 30)
         if currentTimestamp > hourTimestamp:
             # print('currentTimestamp ', currentTimestamp)
             # print(hourTimestamp)
@@ -94,19 +100,12 @@ def cycle():
         exchange()
         time.sleep(1)
 
-# def main():
-#创建调度器：BlockingScheduler
-# scheduler = BlockingScheduler()
-# # 定时脚本任务
-# scheduler.add_job(cycle, 'date', run_date='2020-04-15 08:44:00')
-# # scheduler.add_job(stopCycle, 'date', run_date='2020-04-13 21:50:10', args=['scheduler'])
-# scheduler.start()
+def main():
+    # 调用
+    cycle()
     
-# 调试
-cycle()
-
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 #NB. Original query string below. It seems impossible to parse and
 #reproduce query strings 100% accurately so the one below is given
 #in case the reproduced version is not "correct".
