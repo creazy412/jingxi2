@@ -58,16 +58,16 @@ def cycle():
         currentTimestamp = int(time.time())
         hourTimestampFormat = time.strftime("%Y-%m-%d %H:00:00", time.localtime())
         hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
-        # print(hourTimestampArray)
+        # 开始时间点
+        startLoopPoint = time.strftime("%Y-%m-%d 23:59:55", time.localtime())
+        startLoopPointArray = time.strptime(startLoopPoint, "%Y-%m-%d %H:%M:%S")
+        startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
+        # print(startLoopPointTimestamp)
         hourTimestamp = int(time.mktime(hourTimestampArray) + 30)
-        if currentTimestamp > hourTimestamp:
-            # print('currentTimestamp ', currentTimestamp)
-            # print(hourTimestamp)
-            # print('continue', loopCounter)
-            # loopCounter += 1
-            continue
-        exchange()
-        time.sleep(1)
+        # 当前时间在 T 23:59:55 --- T+1 00:00:30 之间
+        if currentTimestamp > startLoopPointTimestamp and currentTimestamp < hourTimestamp:
+            exchange()
+            time.sleep(1)
 
 def main():
     # 调用
