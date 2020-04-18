@@ -26,7 +26,7 @@ def exchange():
 
     params = (
         ('active', 'zhiboduihuanhb' + activeDate),
-        ('level', '1'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
+        ('level', '4'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
         ('platform', '4'),
         ('_', microsecond),
         ('sceneval', '2'),
