@@ -1,9 +1,8 @@
 import requests
 import time
 import datetime
-from apscheduler.schedulers.blocking import BlockingScheduler
 import sys
-from util import *
+import json
 
 def exchange():
     t = time.time()
@@ -13,46 +12,16 @@ def exchange():
     """
     替换
     """
-    cookies = {
-        '__jdu': '15510555295861266323195',
-        'shshshfpa': '35670fbc-6fb1-0e99-5b6c-1d92b073e604-1551055531',
-        'shshshfpb': 'kkDG3ocAfgjv1kYR55cL6GQ%3D%3D',
-        '3AB9D23F7A4B3C9B': 'YAZYEV2VJOD6QJZM7WBS3G7ATMRXMBWGI6TCSUILAI3AQVTIJJWK7G4MZU3HILXX3ZRGORRWNL6KDUCX45I3SLIVGM',
-        'webp': '1',
-        'visitkey': '20405373257032906',
-        '__jda': '122270672.15510555295861266323195.1551055530.1578145679.1583414707.5',
-        'wxa_level': '1',
-        'block_call_jdapp': '11',
-        '__jdv': '122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1586649190834',
-        'sc_width': '1536',
-        'wq_area': '53283_53440_0%7C0',
-        'TrackerID': '0tHcRgNngOnNGDBkK-5FrIAdu6cXCI6eD3GNZ_-AFH8w8Onp-EBRU-dp-31ThJmTmuZsHug8Jc40TuUAsfCo1xfYQItcMbFg_Jz77Tdsh3lJHHEhuL5Rkb3q_e4zDLwD',
-        'pt_key': 'AAJekloaADCA6o9CfSSn-lEonQds5nngGCVfgiFZ7RnhqN2BfHuqwvL0qxrze_AYKV_FQ0NRU1Y',
-        'pt_pin': '754634469_m',
-        'pt_token': '838vz8v3',
-        'pwdt_id': '754634469_m',
-        'retina': '1',
-        'cid': '9',
-        'PPRD_P': 'UUID.15510555295861266323195-FOCUS.FO4O305%3ABOCE2543O575AA4O76DB4O2DBE3O23O1%3AFOFO9O17O1FOFO6382CO76DBBOCE2547C01A30CE2CE0627-CT.138631.36.18',
-        'shshshfp': '09ee4b5c2bf619958f363e58d2e43363',
-        'wqmnx1': 'MDEyNjM2M3BxY2xhZG1uMjA1MGwwdWQ2ZSAvTmxpLkhsZUMvMzNpZjMzZjRmQktZQ0ZGKCU%3D',
-        '__wga': '1586652140790.1586649190828.1583414565242.1583414565242.12.2',
-        'shshshsID': 'dcab6953f600e143916ad8ca71f3fdb0_13_1586652143907',
-        'promotejs': 'c8d693fcf349bee790cc93ec6cb2dfa3aZd1036kBd',
-    }
-
-    """
-    替换
-    """
     headers = {
-        'Connection': 'keep-alive',
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36',
-        'Sec-Fetch-Dest': 'script',
-        'Accept': '*/*',
-        'Sec-Fetch-Site': 'same-site',
-        'Sec-Fetch-Mode': 'no-cors',
-        'Referer': 'https://wqs.jd.com/pglive/task/index.html?sceneval=2',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'authority': 'wq.jd.com',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Mobile Safari/537.36',
+        'sec-fetch-dest': 'script',
+        'accept': '*/*',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'no-cors',
+        'referer': 'https://wqs.jd.com/pglive/task/index.html?sceneval=2',
+        'accept-language': 'zh-CN,zh;q=0.9',
+        'cookie': 'shshshfpa=490f7e17-1abe-d98b-e7ad-820b5f44f42f-1571622018; shshshfpb=khsT03U5oDfyZ%2FoU01w2Bfw%3D%3D; pinId=p9q4GZ0bvhUviOw3JTn08g; __jdu=1433937085; __jdv=76161171%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1586093544852; TrackID=1H6V0HWVPQH1CTcFqAalsPMA_2Yl6dGufZZX4pjjLKXbVyhbCwXEJDgDlvxINjb782x7OPHVMXmGjcinyVtp61E3oYjS7DgjtzNdfn8kT4Fo; pin=754634469_m; unick=%E7%8C%AE%E6%B6%9B%E5%8B%87; _tp=%2BWZS%2FWDHCOCSXWgN63a%2BSw%3D%3D; _pst=754634469_m; __jdc=76161171; __jda=76161171.1433937085.1565602967.1586224508.1586246687.26; webp=1; visitkey=43179755944294334; sc_width=400; block_call_jdapp=11; 3AB9D23F7A4B3C9B=UHLJPPNJYGNUTGKGPQXUX57EJ4ZH2RY725YSYIBMXHRXKS2L3PEIWIRWDYNB3FNKX6MZQHMUWVI232ZXYIKIYB3H34; retina=1; TrackerID=77OnRyyhaIxQ6YgCV3-Q6x3OD1Mnxzrmxh1J_oWlpaqTB8mGnO_Fea_5b_GEdh-F58yWSt2YVtol24vYKDOtX3Z8bvA3u6tLqi0MX20XDZ2dcM0kLUZwSHex3nnbg9S0auQAD4E8Ojub9nrTRWyKyw; pt_key=AAJelGk-ADATQxnhjDbBnBf7DaZRy0U6kA87pIredOWl35SUOFU42iVXrPECT4BAFu5NC3aywVw; pt_pin=jd_478f44263fce3; pt_token=n4zk9w5j; pwdt_id=jd_478f44263fce3; wxa_level=1; cid=9; shshshfp=63dc7904ead941e56020457b351c26bf; PPRD_P=UUID.1433937085-CT.138631.36.18; __wga=1587207386590.1587207255303.1586826184090.1586247616596.5.7; promotejs=dc9699088b486dcf38f886602ab91732a163RA',
     }
 
     params = (
