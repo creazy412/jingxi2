@@ -35,7 +35,7 @@ def exchange():
         ('g_ty', 'ls'),
     )
 
-    response = requests.get('https://wq.jd.com/jxlivetask/DrawAward', headers=headers, params=params, cookies=cookies)
+    response = requests.get('https://wq.jd.com/jxlivetask/DrawAward', headers=headers, params=params)
     localtime = time.asctime( time.localtime(time.time()) )
 
     # 根据返回结果处理
