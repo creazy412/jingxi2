@@ -7,7 +7,13 @@ import json
 def exchange():
     t = time.time()
     microsecond = int(round(t * 1000))
-    activeDate = time.strftime("%Y%#m%d", time.localtime())
+    # activeDate = time.strftime("%Y%#m%d", time.localtime())
+
+    now = datetime.now()
+    year = str(int(now.strftime('%Y')))
+    month = str(int(now.strftime('%m')))
+    day = str(now.strftime('%d'))
+    activeDate = year + '' + month + '' + day
 
     """
     替换
