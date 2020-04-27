@@ -62,10 +62,10 @@ def cycle():
     """
     while True:
         currentTimestamp = int(time.time())
-        hourTimestampFormat = time.strftime("%Y-%m-%d 00:00:00", time.localtime())
+        hourTimestampFormat = time.strftime("%Y-%m-%d 00:00:02", time.localtime())
         hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
         hourTimestamp = int(time.mktime(hourTimestampArray))
-        hourTimestampPlus30 = int(time.mktime(hourTimestampArray) + 30)
+        hourTimestampPlus3 = int(time.mktime(hourTimestampArray) + 3)
 
         # 开始时间点
         startLoopPoint = time.strftime("%Y-%m-%d 23:59:55", time.localtime())
@@ -73,7 +73,7 @@ def cycle():
         startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
         # print(startLoopPointTimestamp)
         # 当前时间在 T 23:59:55 --- T+1 00:00:30 之间
-        if (currentTimestamp > startLoopPointTimestamp and currentTimestamp <= (startLoopPointTimestamp + 5)) or (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus30):
+        if (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus3):
             exchange()
             time.sleep(1)
 
