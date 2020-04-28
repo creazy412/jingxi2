@@ -21,24 +21,24 @@ def exchange():
     """
     headers = {
         'authority': 'wq.jd.com',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Mobile Safari/537.36',
-        'sec-fetch-dest': 'script',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Mobile Safari/537.36',
         'accept': '*/*',
         'sec-fetch-site': 'same-site',
         'sec-fetch-mode': 'no-cors',
+        'sec-fetch-dest': 'script',
         'referer': 'https://wqs.jd.com/pglive/task/index.html?sceneval=2',
         'accept-language': 'zh-CN,zh;q=0.9',
-        'cookie': 'shshshfpa=490f7e17-1abe-d98b-e7ad-820b5f44f42f-1571622018; shshshfpb=khsT03U5oDfyZ%2FoU01w2Bfw%3D%3D; pinId=p9q4GZ0bvhUviOw3JTn08g; __jdu=1433937085; __jdv=76161171%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1586093544852; TrackID=1H6V0HWVPQH1CTcFqAalsPMA_2Yl6dGufZZX4pjjLKXbVyhbCwXEJDgDlvxINjb782x7OPHVMXmGjcinyVtp61E3oYjS7DgjtzNdfn8kT4Fo; pin=754634469_m; unick=%E7%8C%AE%E6%B6%9B%E5%8B%87; _tp=%2BWZS%2FWDHCOCSXWgN63a%2BSw%3D%3D; _pst=754634469_m; __jdc=76161171; __jda=76161171.1433937085.1565602967.1586224508.1586246687.26; webp=1; visitkey=43179755944294334; sc_width=400; block_call_jdapp=11; 3AB9D23F7A4B3C9B=UHLJPPNJYGNUTGKGPQXUX57EJ4ZH2RY725YSYIBMXHRXKS2L3PEIWIRWDYNB3FNKX6MZQHMUWVI232ZXYIKIYB3H34; retina=1; TrackerID=77OnRyyhaIxQ6YgCV3-Q6x3OD1Mnxzrmxh1J_oWlpaqTB8mGnO_Fea_5b_GEdh-F58yWSt2YVtol24vYKDOtX3Z8bvA3u6tLqi0MX20XDZ2dcM0kLUZwSHex3nnbg9S0auQAD4E8Ojub9nrTRWyKyw; pt_key=AAJelGk-ADATQxnhjDbBnBf7DaZRy0U6kA87pIredOWl35SUOFU42iVXrPECT4BAFu5NC3aywVw; pt_pin=jd_478f44263fce3; pt_token=n4zk9w5j; pwdt_id=jd_478f44263fce3; wxa_level=1; cid=9; shshshfp=63dc7904ead941e56020457b351c26bf; PPRD_P=UUID.1433937085-CT.138631.36.18; __wga=1587207386590.1587207255303.1586826184090.1586247616596.5.7; promotejs=dc9699088b486dcf38f886602ab91732a163RA',
+        'cookie': 'webp=1; sc_width=1920; __jdv=122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1587518294267; visitkey=28627513144879948; shshshfpa=f332fdcd-560b-5bf8-3c9c-9677b27ae4dc-1587518295; shshshfpb=cGa6CPa3nfOg4kZFPlxG7dg%3D%3D; retina=1; cid=9; TrackerID=0rf15RHd1F2JEPV_5CCRbAD1_aIpWqax-UfiTVOuHfPwDLFaCx-ntcsU1rfTzMIzhJQ4ZJfrV79NaZbWiVrfDsg_VSjjs7TrrhsV2UgxeCRrEUOrU4VSqTcq0E6wL_qvAhQIGJ9bjvW7RhAcAzBKjQ; pt_key=AAJeoZxiADA8MMr-YZUjtwQU3PbjdOmDIikJGliev2m3Gwk8ICYiZwUC-g12ASReh32o3Yb9Glk; pt_pin=jd_4fa165b2f7d17; pt_token=v48lnx1l; pwdt_id=jd_4fa165b2f7d17; PPRD_P=CT.138631.36.18; wxa_level=1; wqmnx1=MDEyNjM5OHdtdHhlMjFNLjsgdWQgSzYga2U0YnIxWVU0V1NIKQ%3D%3D; __wga=1587948469604.1587948469604.1587906424381.1587518294262.1.4; shshshfp=5e79c84a53b444d501f6360f39661581; shshshsID=f36e9d751eba63355d170a79c650c89c_1_1587948471920; promotejs=c9ab620d01595f6d7040d95ae8a006d617CIT',
     }
 
     params = (
         ('active', 'zhiboduihuanhb' + activeDate),
-        ('level', '1'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
+        ('level', '2'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
         ('platform', '4'),
         ('_', microsecond),
         ('sceneval', '2'),
         ('g_login_type', '1'),
-        ('callback', 'jsonpCBKM'),
+        ('callback', 'jsonpCBKL'),
         ('g_ty', 'ls'),
     )
 
@@ -46,7 +46,7 @@ def exchange():
     localtime = time.asctime( time.localtime(time.time()) )
 
     # 根据返回结果处理
-    resultText = response.text.replace('jsonpCBKM(', '')
+    resultText = response.text.replace('jsonpCBKL(', '')
     resultText = resultText.replace(')', '')
     resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
@@ -63,18 +63,18 @@ def cycle():
     """
     while True:
         currentTimestamp = int(time.time())
-        hourTimestampFormat = time.strftime("%Y-%m-%d 00:00:00", time.localtime())
+        hourTimestampFormat = time.strftime("%Y-%m-%d 00:00:01", time.localtime())
         hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
         hourTimestamp = int(time.mktime(hourTimestampArray))
-        hourTimestampPlus30 = int(time.mktime(hourTimestampArray) + 30)
+        hourTimestampPlus5 = int(time.mktime(hourTimestampArray) + 4)
 
         # 开始时间点
         startLoopPoint = time.strftime("%Y-%m-%d 23:59:55", time.localtime())
         startLoopPointArray = time.strptime(startLoopPoint, "%Y-%m-%d %H:%M:%S")
         startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
         # print(startLoopPointTimestamp)
-        # 当前时间在 T 23:59:55 --- T+1 00:00:30 之间
-        if (currentTimestamp > startLoopPointTimestamp and currentTimestamp <= (startLoopPointTimestamp + 5)) or (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus30):
+        # 当前时间在 T 00:00:00 --- T+1 00:00:05 之间
+        if (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus5):
             exchange()
             time.sleep(1)
 

@@ -5,7 +5,10 @@ import sys
 import json
 from datetime import datetime
 
-def exchange():
+def exchange(level):
+    """
+    process
+    """
     t = time.time()
     microsecond = int(round(t * 1000))
     # activeDate = time.strftime("%Y%#m%d", time.localtime())
@@ -21,32 +24,32 @@ def exchange():
     """
     headers = {
         'authority': 'wq.jd.com',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Mobile Safari/537.36',
-        'sec-fetch-dest': 'script',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Mobile Safari/537.36',
         'accept': '*/*',
         'sec-fetch-site': 'same-site',
         'sec-fetch-mode': 'no-cors',
+        'sec-fetch-dest': 'script',
         'referer': 'https://wqs.jd.com/pglive/task/index.html?sceneval=2',
         'accept-language': 'zh-CN,zh;q=0.9',
-        'cookie': 'shshshfpa=490f7e17-1abe-d98b-e7ad-820b5f44f42f-1571622018; shshshfpb=khsT03U5oDfyZ%2FoU01w2Bfw%3D%3D; pinId=p9q4GZ0bvhUviOw3JTn08g; __jdu=1433937085; __jdv=76161171%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1586093544852; TrackID=1H6V0HWVPQH1CTcFqAalsPMA_2Yl6dGufZZX4pjjLKXbVyhbCwXEJDgDlvxINjb782x7OPHVMXmGjcinyVtp61E3oYjS7DgjtzNdfn8kT4Fo; pin=754634469_m; unick=%E7%8C%AE%E6%B6%9B%E5%8B%87; _tp=%2BWZS%2FWDHCOCSXWgN63a%2BSw%3D%3D; _pst=754634469_m; __jdc=76161171; __jda=76161171.1433937085.1565602967.1586224508.1586246687.26; webp=1; visitkey=43179755944294334; sc_width=400; block_call_jdapp=11; 3AB9D23F7A4B3C9B=UHLJPPNJYGNUTGKGPQXUX57EJ4ZH2RY725YSYIBMXHRXKS2L3PEIWIRWDYNB3FNKX6MZQHMUWVI232ZXYIKIYB3H34; retina=1; TrackerID=77OnRyyhaIxQ6YgCV3-Q6x3OD1Mnxzrmxh1J_oWlpaqTB8mGnO_Fea_5b_GEdh-F58yWSt2YVtol24vYKDOtX3Z8bvA3u6tLqi0MX20XDZ2dcM0kLUZwSHex3nnbg9S0auQAD4E8Ojub9nrTRWyKyw; pt_key=AAJelGk-ADATQxnhjDbBnBf7DaZRy0U6kA87pIredOWl35SUOFU42iVXrPECT4BAFu5NC3aywVw; pt_pin=jd_478f44263fce3; pt_token=n4zk9w5j; pwdt_id=jd_478f44263fce3; wxa_level=1; cid=9; shshshfp=63dc7904ead941e56020457b351c26bf; PPRD_P=UUID.1433937085-CT.138631.36.18; __wga=1587207386590.1587207255303.1586826184090.1586247616596.5.7; promotejs=dc9699088b486dcf38f886602ab91732a163RA',
+        'cookie': 'wxa_level=1; webp=1; block_call_jdapp=11; sc_width=1920; __jdv=122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1587518294267; wq_area=19_1607_4773%7C3; visitkey=28627513144879948; shshshfpa=f332fdcd-560b-5bf8-3c9c-9677b27ae4dc-1587518295; shshshfpb=cGa6CPa3nfOg4kZFPlxG7dg%3D%3D; retina=1; TrackerID=MRD4qz0xN_u4iyYh57criOB8RYViUMbilLbqHS-4SuSuZZt_Kgfbt2xCFiPLQs166V_pjsOIH-T9I59R8GM31wbjswcGtoPWdaXPtZ6T_0cTKfT73tYYU2gwVa3FpIHcHQ0Y44b-riLPOEypZgtgrw; pt_key=AAJen56gADB36nGmzYAiSsxxG7Sr8eynyZLVnz4lvzMMHGrhaaUQ-MW4YaHzpM1jVBoHaTAWmGU; pt_pin=jd_RmVTvMkeKfWf; pt_token=oycwt392; pwdt_id=jd_RmVTvMkeKfWf; cid=9; shshshfp=d54b79c8c57595c77d64b2e240e58999; PPRD_P=CT.138631.36.18; wqmnx1=MDEyNjM4Ni8uaS90ZTIxOC9ucjs1TUFLM0xHaC4xbGkxc2Y0MkVIJlI%3D; __wga=1587519170074.1587518294262.1587518294262.1587518294262.6.1; shshshsID=d95841118172c6fbf1f8021ff08af228_8_1587519170368; promotejs=ca244ad51eb358e5fc19cf82b02e233218WQ',
     }
 
     params = (
         ('active', 'zhiboduihuanhb' + activeDate),
-        ('level', '1'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
+        ('level', level), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
         ('platform', '4'),
         ('_', microsecond),
         ('sceneval', '2'),
         ('g_login_type', '1'),
-        ('callback', 'jsonpCBKM'),
+        ('callback', 'jsonpCBKL'),
         ('g_ty', 'ls'),
     )
-
+    
     response = requests.get('https://wq.jd.com/jxlivetask/DrawAward', headers=headers, params=params)
     localtime = time.asctime( time.localtime(time.time()) )
 
     # 根据返回结果处理
-    resultText = response.text.replace('jsonpCBKM(', '')
+    resultText = response.text.replace('jsonpCBKL(', '')
     resultText = resultText.replace(')', '')
     resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
@@ -54,19 +57,28 @@ def exchange():
         print(localtime, '兑换成功！')
         exit()
 
+    print(localtime, '参数值:', format(params))
     print(localtime, '兑换结果:', response.text)
+
+    return resultTextJson
 
 def cycle():
     """
     循环调用
     如果当前时间大于整点+30秒的时候 continue
     """
+    # 红包级别
+    level = 1
+
     while True:
         currentTimestamp = int(time.time())
         hourTimestampFormat = time.strftime("%Y-%m-%d 00:00:00", time.localtime())
         hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
         hourTimestamp = int(time.mktime(hourTimestampArray))
         hourTimestampPlus30 = int(time.mktime(hourTimestampArray) + 30)
+
+        if level > 5:
+            exit()
 
         # 开始时间点
         startLoopPoint = time.strftime("%Y-%m-%d 23:59:55", time.localtime())
@@ -75,8 +87,11 @@ def cycle():
         # print(startLoopPointTimestamp)
         # 当前时间在 T 23:59:55 --- T+1 00:00:30 之间
         if (currentTimestamp > startLoopPointTimestamp and currentTimestamp <= (startLoopPointTimestamp + 5)) or (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus30):
-            exchange()
-            time.sleep(1)
+            rst = exchange(level)
+            if rst['ret'] == 1014 or rst['ret'] == 1018 or rst['ret'] == 0:
+                level = level + 1
+                time.sleep(1)
+                continue
 
 def main():
     # 调用

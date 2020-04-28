@@ -19,34 +19,59 @@ def exchange():
     """
     替换
     """
+    cookies = {
+        'wxa_level': '1',
+        'retina': '0',
+        'cid': '9',
+        'wqmnx1': 'MDEyNjM4Ni8uaS90ZTE3OS8xdSAgKTIgLzM3YTVXRFUp',
+        'webp': '1',
+        '__jda': '122270672.1587649229460465590896.1587649229.1587649229.1587649229.1',
+        '__jdb': '122270672.8.1587649229460465590896|1.1587649229',
+        '__jdv': '122270672%7Cdirect%7C-%7Cnone%7C-%7C1587649229461',
+        '__jdc': '122270672',
+        'mba_muid': '1587649229460465590896',
+        'mba_sid': '15876492294628876587270520362.8',
+        '__wga': '1587649523649.1587649229621.1587649229621.1587649229621.6.1',
+        'PPRD_P': 'UUID.1587649229460465590896-CT.138631.36.18',
+        'sc_width': '1920',
+        'shshshfp': '541681cac3438f7d8b66828a686e1a7a',
+        'shshshfpa': '913631a5-b454-e8b1-e4a9-1a708e6c7159-1587649230',
+        'shshshsID': 'fc7cac4170c307cdd8707889533a9a2d_6_1587649523890',
+        'shshshfpb': 'g7ZQ19H68KgGIG2wtlgoseg%3D%3D',
+        'TrackerID': 'gQfAzvhxw17wvpb2nG7eWsatLPiTDiJwZQqvrm3snfKeO_7o7l9pBQ3zX4E_FOyC4zr0BGDgIzI4IwAwnl_yEeFRRaoRWMFa7UXG7L-9SYHnv_ZAcPuvwnvyVa3zCAwSP48FqoFxdi85dNLw-Sy1fA',
+        'pt_key': 'AAJeoZtrADDg-FrsSxTv3z2GdFQN4z4vwLNqTJWVYXL-zu_e5DKJ2Q7Lr3pxguvsB3iREE2IEDg',
+        'pt_pin': 'jd_735dea6726554',
+        'pt_token': 'dkze7qks',
+        'pwdt_id': 'jd_735dea6726554',
+        'visitkey': '17274183726511859',
+        'block_call_jdapp': '11',
+        'promotejs': '357c4c447bc6d8a294869a1842c22f7eH*1348LJ%25',
+    }
+
     headers = {
-        'authority': 'wq.jd.com',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Mobile Safari/537.36',
-        'accept': '*/*',
-        'sec-fetch-site': 'same-site',
-        'sec-fetch-mode': 'no-cors',
-        'sec-fetch-dest': 'script',
-        'referer': 'https://wqs.jd.com/pglive/task/index.html?sceneval=2',
-        'accept-language': 'zh-CN,zh;q=0.9',
-        'cookie': 'wxa_level=1; webp=1; block_call_jdapp=11; sc_width=1920; __jdv=122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1587518294267; wq_area=19_1607_4773%7C3; visitkey=28627513144879948; shshshfpa=f332fdcd-560b-5bf8-3c9c-9677b27ae4dc-1587518295; shshshfpb=cGa6CPa3nfOg4kZFPlxG7dg%3D%3D; retina=1; TrackerID=MRD4qz0xN_u4iyYh57criOB8RYViUMbilLbqHS-4SuSuZZt_Kgfbt2xCFiPLQs166V_pjsOIH-T9I59R8GM31wbjswcGtoPWdaXPtZ6T_0cTKfT73tYYU2gwVa3FpIHcHQ0Y44b-riLPOEypZgtgrw; pt_key=AAJen56gADB36nGmzYAiSsxxG7Sr8eynyZLVnz4lvzMMHGrhaaUQ-MW4YaHzpM1jVBoHaTAWmGU; pt_pin=jd_RmVTvMkeKfWf; pt_token=oycwt392; pwdt_id=jd_RmVTvMkeKfWf; cid=9; shshshfp=d54b79c8c57595c77d64b2e240e58999; PPRD_P=CT.138631.36.18; wqmnx1=MDEyNjM4Ni8uaS90ZTIxOC9ucjs1TUFLM0xHaC4xbGkxc2Y0MkVIJlI%3D; __wga=1587519170074.1587518294262.1587518294262.1587518294262.6.1; shshshsID=d95841118172c6fbf1f8021ff08af228_8_1587519170368; promotejs=1887e4abd9bf64bc1064fc465e8d0433484',
+        'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0',
+        'Accept': '*/*',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Referer': 'https://wqs.jd.com/pglive/task/index.html?sceneval=2',
     }
 
     params = (
         ('active', 'zhiboduihuanhb' + activeDate),
-        ('level', '4'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
+        ('level', '1'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
         ('platform', '4'),
         ('_', microsecond),
         ('sceneval', '2'),
         ('g_login_type', '1'),
-        ('callback', 'jsonpCBKM'),
+        ('callback', 'jsonpCBKH'),
         ('g_ty', 'ls'),
     )
-
+    
     response = requests.get('https://wq.jd.com/jxlivetask/DrawAward', headers=headers, params=params, cookies=cookies)
     localtime = time.asctime( time.localtime(time.time()) )
 
     # 根据返回结果处理
-    resultText = response.text.replace('jsonpCBKM(', '')
+    resultText = response.text.replace('jsonpCBKH(', '')
     resultText = resultText.replace(')', '')
     resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
@@ -66,17 +91,17 @@ def cycle():
         hourTimestampFormat = time.strftime("%Y-%m-%d 00:00:00", time.localtime())
         hourTimestampArray = time.strptime(hourTimestampFormat, "%Y-%m-%d %H:%M:%S")
         hourTimestamp = int(time.mktime(hourTimestampArray))
-        hourTimestampPlus30 = int(time.mktime(hourTimestampArray) + 30)
+        hourTimestampPlus1 = int(time.mktime(hourTimestampArray) + 1)
 
         # 开始时间点
-        startLoopPoint = time.strftime("%Y-%m-%d 23:59:55", time.localtime())
+        startLoopPoint = time.strftime("%Y-%m-%d 23:59:59", time.localtime())
         startLoopPointArray = time.strptime(startLoopPoint, "%Y-%m-%d %H:%M:%S")
         startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
         # print(startLoopPointTimestamp)
         # 当前时间在 T 23:59:55 --- T+1 00:00:30 之间
-        if (currentTimestamp > startLoopPointTimestamp and currentTimestamp <= (startLoopPointTimestamp + 5)) or (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus30):
+        if (currentTimestamp >= startLoopPointTimestamp and currentTimestamp <= (startLoopPointTimestamp + 1)) or (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus1):
             exchange()
-            time.sleep(1)
+            time.sleep(0.5)
 
 def main():
     # 调用
