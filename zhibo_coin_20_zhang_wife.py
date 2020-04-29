@@ -99,7 +99,7 @@ def cycle():
         startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
         # print(startLoopPointTimestamp)
         # 当前时间在 T 23:59:55 --- T+1 00:00:30 之间
-        if (currentTimestamp >= startLoopPointTimestamp and currentTimestamp <= (startLoopPointTimestamp + 1)) or (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus1):
+        if (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus1):
             exchange()
             time.sleep(0.5)
 
