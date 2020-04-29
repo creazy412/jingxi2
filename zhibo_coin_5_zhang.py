@@ -33,12 +33,12 @@ def exchange():
 
     params = (
         ('active', 'zhiboduihuanhb' + activeDate),
-        ('level', '2'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
+        ('level', '3'), # 1 20元红包、2 10元红包、3 5元红包、4 2元红包、5 1元红包
         ('platform', '4'),
         ('_', microsecond),
         ('sceneval', '2'),
         ('g_login_type', '1'),
-        ('callback', 'jsonpCBKL'),
+        ('callback', 'jsonpCBKN'),
         ('g_ty', 'ls'),
     )
 
@@ -46,7 +46,7 @@ def exchange():
     localtime = time.asctime( time.localtime(time.time()) )
 
     # 根据返回结果处理
-    resultText = response.text.replace('jsonpCBKL(', '')
+    resultText = response.text.replace('jsonpCBKN(', '')
     resultText = resultText.replace(')', '')
     resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)

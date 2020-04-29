@@ -59,7 +59,7 @@ def exchange():
 def cycle():
     """
     循环调用
-    如果当前时间大于整点+30秒的时候 continue
+    如果当前时间大于整点+1秒的时候 不执行
     """
     while True:
         currentTimestamp = int(time.time())
@@ -74,7 +74,7 @@ def cycle():
         startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
         # print(startLoopPointTimestamp)
         # 当前时间在 T 23:59:59 --- T+1 00:00:30 之间
-        if (currentTimestamp >= startLoopPointTimestamp and currentTimestamp <= (startLoopPointTimestamp + 1)) or (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus1):
+        if (currentTimestamp >= hourTimestamp and currentTimestamp < hourTimestampPlus1):
             exchange()
             time.sleep(0.5)
 
