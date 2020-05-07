@@ -26,4 +26,4 @@
 - python zhibo_coin_2.py
 
 #### 使用教程
-链接到[]()
+链接到[Python 替代手工抢兑京喜直播红包](https://www.liisli.cn/2020/04/20/python-%e6%9b%bf%e4%bb%a3%e6%89%8b%e5%b7%a5%e6%8a%a2%e5%85%91%e4%ba%ac%e5%96%9c%e7%9b%b4%e6%92%ad%e7%ba%a2%e5%8c%85/)
