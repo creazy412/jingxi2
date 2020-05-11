@@ -1,6 +1,8 @@
 import requests
 import time
 import datetime
+import json
+import random
 
 def invest_electric():
     t = time.time()
@@ -32,9 +34,10 @@ def invest_electric():
 
     response = requests.get('https://wq.jd.com/dreamfactory/userinfo/InvestElectric', headers=headers, params=params)
     localtime = time.asctime( time.localtime(time.time()) )
+    print(response.text)
 
     # 根据返回结果处理
-    resultText = response.text.replace('ry {jsonpCBKQ(', '')
+    resultText = response.text.replace('try {jsonpCBKQ(', '')
     resultText = resultText.replace(')} catch (e) {}', '')
     # resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
@@ -49,7 +52,8 @@ def cycle():
     """无规律的多次加电,防止被查出机器操作"""
     while True:
         invest_electric()
-        time.sleep(600)
+        sleep_time = random.randint(1800,3000)
+        time.sleep(sleep_time)
 
 def main():
     # 调用
