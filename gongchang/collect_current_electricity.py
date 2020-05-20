@@ -55,9 +55,20 @@ def collect_electric():
 def cycle():
     """无规律的多次加电,防止被查出机器操作"""
     while True:
+        currentTimestamp = int(time.time())
+        # 开始时间点
+        startLoopPoint = time.strftime("%Y-%m-%d 00:30:49", time.localtime())
+        startLoopPointArray = time.strptime(startLoopPoint, "%Y-%m-%d %H:%M:%S")
+        startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
+        # 结束时间点
+        stopLoopPointTimestamp = startLoopPointTimestamp + (5 * 60 * 3600)
+
+        if currentTimestamp > startLoopPointTimestamp and currentTimestamp < stopLoopPointTimestamp:
+            continue
+            
         collect_electric()
-        # sleep_time = random.randint(200,300)
-        sleep_time = 5
+        sleep_time = random.randint(200,300)
+        # sleep_time = 5
         time.sleep(sleep_time)
 
 def main():
