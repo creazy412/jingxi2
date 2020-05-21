@@ -61,15 +61,16 @@ def cycle():
         startLoopPointArray = time.strptime(startLoopPoint, "%Y-%m-%d %H:%M:%S")
         startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
         # 结束时间点
-        stopLoopPointTimestamp = startLoopPointTimestamp + (5 * 60 * 3600)
-
+        stopLoopPointTimestamp = startLoopPointTimestamp + (5 * 3600)
+        # print(startLoopPointTimestamp)
+        # print(stopLoopPointTimestamp)
         if currentTimestamp > startLoopPointTimestamp and currentTimestamp < stopLoopPointTimestamp:
             continue
-            
-        collect_electric()
-        sleep_time = random.randint(200,300)
-        # sleep_time = 5
-        time.sleep(sleep_time)
+        else:
+            collect_electric()
+            sleep_time = random.randint(200,300)
+            # sleep_time = 5
+            time.sleep(sleep_time)
 
 def main():
     # 调用
