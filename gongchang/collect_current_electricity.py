@@ -68,7 +68,7 @@ def cycle():
             continue
         else:
             collect_electric()
-            sleep_time = random.randint(200,300)
+            sleep_time = random.randint(200,1500)
             # sleep_time = 5
             time.sleep(sleep_time)
 
