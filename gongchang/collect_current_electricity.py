@@ -57,11 +57,11 @@ def cycle():
     while True:
         currentTimestamp = int(time.time())
         # 开始时间点
-        startLoopPoint = time.strftime("%Y-%m-%d 00:30:49", time.localtime())
+        startLoopPoint = time.strftime("%Y-%m-%d 00:00:00", time.localtime())
         startLoopPointArray = time.strptime(startLoopPoint, "%Y-%m-%d %H:%M:%S")
         startLoopPointTimestamp = int(time.mktime(startLoopPointArray))
         # 结束时间点
-        stopLoopPointTimestamp = startLoopPointTimestamp + (5 * 3600)
+        stopLoopPointTimestamp = startLoopPointTimestamp + (6 * 3600) + 60
         # print(startLoopPointTimestamp)
         # print(stopLoopPointTimestamp)
         if currentTimestamp > startLoopPointTimestamp and currentTimestamp < stopLoopPointTimestamp:
