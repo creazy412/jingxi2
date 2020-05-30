@@ -10,29 +10,31 @@ def collect_electric():
 
     headers = {
         'authority': 'wq.jd.com',
-        'user-agent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Mobile Safari/537.36',
         'accept': '*/*',
         'sec-fetch-site': 'same-site',
         'sec-fetch-mode': 'no-cors',
         'sec-fetch-dest': 'script',
-        'referer': 'https://wqs.jd.com/pingou/dream_factory/index.html?ptag=138912.1.66&sceneval=2&jxsid=15899826033739777668',
+        'referer': 'https://wqs.jd.com/pingou/dream_factory/index.html?share_ptag=1.1.1&jxsid=15907492306869524270&PTAG=17053.57.1&_fromplatform=jxapp&ad_od=share&utm_source=androidpingouapp&utm_medium=pingouappshare&utm_campaign=t_335139774&utm_term=CopyURL',
         'accept-language': 'zh-CN,zh;q=0.9',
-        'cookie': 'webp=1; sc_width=1920; visitkey=28627513144879948; shshshfpa=f332fdcd-560b-5bf8-3c9c-9677b27ae4dc-1587518295; shshshfpb=cGa6CPa3nfOg4kZFPlxG7dg%3D%3D; retina=1; __jda=122270672.15881431483991546161782.1588143148.1588143148.1588143148.1; TrackerID=01HToTouMIMHFimdWvPmTsZ1lCb3OidpxnSvQO6HXslr8ZVUBWde9X22QpgeJek-hz08SHp9x-_WetwMfHQDfaoFCcwGkBotAQomhc4YppVy2t8gJeaAVv70iQQXaQCS; pt_key=AAJeqXopADCSgr1TwFkDuwFeFmvdpC7IAmpkL0kQeJL1_95Baq2ioVCaJtRfDotT1SquqnhA3CI; pt_pin=754634469_m; pt_token=xjnpfv8x; pwdt_id=754634469_m; sbx_hot_h=null; wq_addr=1472249671%7C19_1607_4773_62122%7C%u5E7F%u4E1C_%u6DF1%u5733%u5E02_%u5B9D%u5B89%u533A_%u897F%u4E61%u8857%u9053%7C%u5E7F%u4E1C%u6DF1%u5733%u5E02%u5B9D%u5B89%u533A%u897F%u4E61%u8857%u9053%u94F6%u7530%u8DEF4%u53F7%u667A%u8C37%u5B9D%u5B89%u667A%u8C37H%u5EA7609%7C113.859%2C22.5823; jdAddrId=19_1607_4773_62122; jdAddrName=%u5E7F%u4E1C_%u6DF1%u5733%u5E02_%u5B9D%u5B89%u533A_%u897F%u4E61%u8857%u9053; mitemAddrId=19_1607_4773_62122; mitemAddrName=%u5E7F%u4E1C%u6DF1%u5733%u5E02%u5B9D%u5B89%u533A%u897F%u4E61%u8857%u9053%u94F6%u7530%u8DEF4%u53F7%u667A%u8C37%u5B9D%u5B89%u667A%u8C37H%u5EA7609; wxa_level=1; jxsid=15899826033739777668; wq_area=19_1607_4773%7C3; buy_uin=15432740016; jdpin=754634469_m; pin=754634469_m; wq_skey=zm5DC4A838D74FE89F217501C245F00394E1BBCBF1D6674148CD3CEA5B31A60E1CBF22362445D6B39211670B285A9EF5A2B6D3A978BA3C9AF73EC7722E003160CABD90C0023C52C2A096158258A7BD7357; wq_uin=15432740016; __jdv=122270672%7Candroidpingouapp%7Ct_335139774%7Cpingouappshare%7CCopyURL%7C1589982607980; shshshfp=7ac63d776a6b9d82f2f20dbf5403a77d; cid=9; wqmnx1=MDEyNjM4Ny9jb18vdD0xbmo4MzYyOHowIDFlIGU2ICBjczAvZi84ZlUyVk8pKCk%3D; __wga=1589982658452.1589982604002.1588898481788.1587518294262.4.9; PPRD_P=UUID.15881431483991546161782-EA.17053.57.1-CT.138912.1.66; _tj_rvurl=https%3A//wq.jd.com/cube/front/activePublish/dream_factory_report/380556.html%3Fptag%3D138912.1.66%26sceneval%3D2%26jxsid%3D15899826033739777668; shshshsID=70939981a23e0e9c5e0d779f5e0a06f0_4_1589982660283; 3AB9D23F7A4B3C9B=KNGXAJ5MPLC7DUADBMJVWLYDV5KT7G5KAO4YE33TEJXYBTAAAZELMQSCQLRHZSA4ZWKGWMCKWWXCJHXN2NXWEMAEQI',
+        'cookie': '__jdu=15510555295861266323195; shshshfpa=35670fbc-6fb1-0e99-5b6c-1d92b073e604-1551055531; shshshfpb=kkDG3ocAfgjv1kYR55cL6GQ%3D%3D; webp=1; visitkey=20405373257032906; __jda=122270672.15510555295861266323195.1551055530.1583414707.1589696846.6; ipLoc-djd=15-1243-1244-42694; wxa_level=1; cid=3; _tj_rvurl=https%3A//wq.jd.com/cube/front/activePublish/dream_factory_report/380556.html%3Fshare_ptag%3D1.1.1%26jxsid%3D15907492306869524270%26PTAG%3D17053.57.1%26_fromplatform%3Djxapp%26ad_od%3Dshare%26utm_source%3Dandroidpingouapp%26utm_medium%3Dpingouappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL; PPRD_P=UUID.15510555295861266323195-EA.17053.57.1; sc_width=1536; wq_area=15_1243_0%7C3; rurl=https%3A%2F%2Fwqs.jd.com%2Fpingou%2Fdream_factory%2Findex.html%3Fshare_ptag%3D1.1.1%26jxsid%3D15907492306869524270%26PTAG%3D17053.57.1%26_fromplatform%3Djxapp%26ad_od%3Dshare%26utm_source%3Dandroidpingouapp%26utm_medium%3Dpingouappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL; TrackerID=adlE5F2h2lwIeIisSm_z6qCelRvMRnHoLWG4MXKSGDPlQCvF8cu1gI3Y4PZWa7JIUg7A3MV7siOUzRbZ00l-cArN80eKxvXRG17v1LTjo3lr_EW0ukcNNkmTjQTMjc9J; pt_key=AAJe0dHvADDo7S_ku4IWtjX-BQsFu3IcuvEy26mwlFIPaBlCt4gRX7f5wjyjaBUQxh82ZpYfYsg; pt_pin=754634469_m; pt_token=8izsaw17; pwdt_id=754634469_m; buy_uin=15432740016; jdpin=754634469_m; pin=754634469_m; wq_skey=zm6CF9389C99518F64360ED290F4338F3DF397FF717CAC72F9A826913D107A9DC7BE17E58A738E675A5E8DE560D80A7D5DB6D3A978BA3C9AF73EC7722E003160CA9F718E249AD785EF02142D4AE5011974; wq_uin=15432740016; retina=1; shshshfp=7194102934210c2850341a0f1c1937a7; 3AB9D23F7A4B3C9B=LTLK77KD7ALLHMCCMKOG5GPB2NDBKRJQ4H4A5VQCYLSQ5TSO5MNWY6RAP3II2XCB3SPNCSJSFHMHR74F7V57IBYPOI; wqmnx1=MDEyNjM4NTpkbmFyLmE9eDA4MDcxbGpfZXVyb209cHVhMyZtTDUzaSAgIHhpOGU1S2lvZTBvZi5GNC0zWVMqKA%3D%3D; __wga=1590809806085.1590809026586.1586787092484.1583414565242.4.5; __jdv=122270672%7Candroidpingouapp%7Ct_335139774%7Cpingouappshare%7CCopyURL%7C1590809806091; shshshsID=a9443b8419d57769497e456c6232ea10_5_1590809806479',
     }
 
     t2 = time.time()
     microsecond2 = int(round(t2 * 1000))
     params = (
         ('zone', 'dream_factory'),
+        ('apptoken', ''),
+        ('pgtimestamp', ''),
+        ('phoneID', ''),
         ('factoryid', '1099513774545'),
         ('doubleflag', '0'),
         ('timeStamp', 'undefined'),
         ('_time', microsecond),
         ('_', microsecond2),
-        ('sceneval', '2'),
-        ('g_login_type', '1'),
-        ('callback', 'jsonpCBKX'),
-        ('g_tk', '447946603'),
+        ('g_login_type', '0'),
+        ('callback', 'jsonpCBKR'),
+        ('g_tk', '584444182'),
         ('g_ty', 'ls'),
     )
 
@@ -41,7 +43,7 @@ def collect_electric():
     print(response.text)
 
     # 根据返回结果处理
-    resultText = response.text.replace('try {jsonpCBKX(', '')
+    resultText = response.text.replace('try {jsonpCBKR(', '')
     resultText = resultText.replace(')} catch (e) {}', '')
     # resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
