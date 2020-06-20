@@ -10,14 +10,14 @@ def collect_electric():
 
     headers = {
         'authority': 'wq.jd.com',
-        'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
-        'sec-fetch-dest': 'script',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36',
         'accept': '*/*',
         'sec-fetch-site': 'same-site',
         'sec-fetch-mode': 'no-cors',
-        'referer': 'https://wqs.jd.com/pingou/dream_factory/index.html?share_ptag=1.1.1&jxsid=15907492306869524270&PTAG=17053.57.1&_fromplatform=jxapp&ad_od=share&utm_source=androidpingouapp&utm_medium=pingouappshare&utm_campaign=t_335139774&utm_term=CopyURL',
+        'sec-fetch-dest': 'script',
+        'referer': 'https://wqs.jd.com/pingou/dream_factory/index.html?share_ptag=1.1.1&jxsid=15902028949811582480&PTAG=17053.57.1&_fromplatform=jxapp&ad_od=share&utm_source=androidpingouapp&utm_medium=pingouappshare&utm_campaign=t_335139774&utm_term=CopyURL',
         'accept-language': 'zh-CN,zh;q=0.9',
-        'cookie': 'shshshfpa=490f7e17-1abe-d98b-e7ad-820b5f44f42f-1571622018; shshshfpb=khsT03U5oDfyZ%2FoU01w2Bfw%3D%3D; pinId=p9q4GZ0bvhUviOw3JTn08g; __jdu=1433937085; TrackID=1H6V0HWVPQH1CTcFqAalsPMA_2Yl6dGufZZX4pjjLKXbVyhbCwXEJDgDlvxINjb782x7OPHVMXmGjcinyVtp61E3oYjS7DgjtzNdfn8kT4Fo; user-key=c0a987f2-6776-4e56-a23c-e12f1e5331b5; cn=2; __jda=122270672.1433937085.1565602967.1588509394.1590669227.28; __jdc=122270672; areaId=19; ipLoc-djd=19-1607-4773-0; 3AB9D23F7A4B3C9B=HOENZJ47QVRFRK6WUOKPXZWRJX6DERJ4DJRRGLOXRJTI7NXJMCUYGHBIY54KEYZQ234HYRAQJLQ6DT6NPDPRA6BB4U; wxa_level=1; retina=1; cid=3; webp=1; sc_width=1536; wq_area=19_1607_4773%7C3; rurl=https%3A%2F%2Fwqs.jd.com%2Fpingou%2Fdream_factory%2Findex.html%3Fshare_ptag%3D1.1.1%26jxsid%3D15907492306869524270%26PTAG%3D17053.57.1%26_fromplatform%3Djxapp%26ad_od%3Dshare%26utm_source%3Dandroidpingouapp%26utm_medium%3Dpingouappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL; TrackerID=xibJX-2qEsgmtuYUf8mKF5-2NSUzhKSlfsU0NqCQN8a5xucdEsEXzwQVaYs0jQlm2GDsHqYhmU2-pq-UVit_3scqUw6X4TdFMrfZYiqSa05UIgJk8FdfbkoAZNtxNigbMATQRMMGgpuZCVsAWqbAzg; pt_key=AAJe0OkkADCmGV6ULGx5E6DeNxuJgEfy8YyMtk3LrlMWRftYUh_XFk2_xcUC7oNYQortQ6m3Gr8; pt_pin=jd_478f44263fce3; pt_token=9wyop8ok; pwdt_id=jd_478f44263fce3; buy_uin=21620582635; jdpin=jd_478f44263fce3; pin=jd_478f44263fce3; wq_skey=zm66F0EF2BB5A7615DDA1AC1829FC572E923BFA271287DCAF1FD10163506A1450EB2010EFD4349A64B75A7D308C67CA98F34427D74EA9B25F00237998BBA048090D7982602B71A2597CE2331333FF370917FA9085E92B511C7B35B054AB64DDE0A; wq_uin=21620582635; wqmnx1=MDEyNjM5Ny9vL2NlaD1zNDVBNW09XyZjZHBpdSZhNXRvTS5laDNlWGUuVCBlLmwgMEZkLTJVKSY%3D; __wga=1590749478280.1590749350164.1590749350164.1590749350164.2.1; __jdv=76161171%7Candroidpingouapp%7Ct_335139774%7Cpingouappshare%7CCopyURL%7C1590749478287; shshshfp=bb28c4616e6e3e83d8e4e812ae8a4ea1; shshshsID=e778652691e786b70c1e3544b0de2ead_3_1590749478680; visitkey=68838765784605337; _tj_rvurl=https%3A//wq.jd.com/cube/front/activePublish/dream_factory_report/380556.html%3Fshare_ptag%3D1.1.1%26jxsid%3D15907492306869524270%26PTAG%3D17053.57.1%26_fromplatform%3Djxapp%26ad_od%3Dshare%26utm_source%3Dandroidpingouapp%26utm_medium%3Dpingouappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL; PPRD_P=UUID.1433937085-EA.17053.57.1',
+        'cookie': '__jdu=1589984592067854966288; shshshfpa=6549d940-e666-8194-e497-909ec30a88c4-1590202973; shshshfpb=of%202NC3JqmU%20oH38eBcm4AA%3D%3D; areaId=15; ipLoc-djd=15-1213-0-0; TrackID=1mYJZaiN7buvpVR7Dy14bmKu-ktSXscwy_gheqjrtxzcxBM9Q1JU42JsARsyeyjn6Zw8JvafbQuMwhZdUgIqrcyEdI5ir7e2LYOx5KkjginJymEiePxeUAyRBLgR0m0VS; thor=8588A18ED190ADDD1EBBD96A198619288C15D4CAA8BC4C88EADCBBD4B6CA4CAA2BE8843E48E7C0DFF2D72E9C90EAAA141528393EC0AF618214C12BD6E454258D1BA39D5DA10EBF9407764BE7805DF192F676E4CD0AC25B388E569DB4A7E2BB88131DFA37C00DBA96B748A0F48AF4CDD0AB36E3C6E04BFED9D55919CC12CF17A90C9D823C83929A5798DFC99D57BFCA0B229EBCAE5EA2CAD460922E230F47231C; pinId=GhBdgvO0uLXmaS3Wxf6NPLV9-x-f3wj7; unick=jd_186820yeq; ceshi3.com=201; _tp=uMxD0se7sdZuxkPMSTgBZxGR2F9gI0KP09M6ADvi5Xo%3D; _pst=jd_478f44263fce3; pin=jd_478f44263fce3; __jdc=76161171; rurl=https%3A%2F%2Fwqs.jd.com%2Fpingou%2Fdream_factory%2Findex.html%3Fshare_ptag%3D1.1.1%26jxsid%3D15902028949811582480%26PTAG%3D17053.57.1%26_fromplatform%3Djxapp%26ad_od%3Dshare%26utm_source%3Dandroidpingouapp%26utm_medium%3Dpingouappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL; mba_muid=1589984592067854966288; 3AB9D23F7A4B3C9B=ZJB2J3YFRYGTLIRTEHG6SVLYHZHNUUKLVDWFM252ROKFFG7PCA2AJFZU3B7QOBIUOUZJP43PLUO7WUIHVUOZFW5G3Q; __jda=76161171.1589984592067854966288.1589984592.1592615779.1592634383.7; pwdt_id=jd_478f44263fce3; pt_token=0qpyhu23; pt_pin=jd_478f44263fce3; pt_key=AAJe7ayyADBmJbLlfhnAd66qE3oCyoFp6pc3hdFHQBi1ajq6I5on_C88DT5DpATgOoqrAHM7E2Y; TrackerID=huP-z0-XteAgM9v229raGaLAJoMQbS_hOZUSGc3ezxb1tkTHQYRmIXblAqiRiMhY0rRXGLkOp3dCQnPc58q2OJuvaBdIG2kvI9qSmSjEPBuetMHna-NgdJOCFn_6BDY1; __jd_ref_cls=MLoginRegister_SMSLoginSuccess; buy_uin=21620582635; jdpin=jd_478f44263fce3; wq_skey=zm04054EF3127BB7DB17DD04FC5C2E5952D6296DB9E04C1A6D97F9FB813F6697777719C7C82814D3E3C5F99FFD4D4DFB4C34427D74EA9B25F00237998BBA0480904D096D6B174EEBDF03066FDC301D591684BC820AF069041AD0B19B7C21176B6E; wq_uin=21620582635; wxa_level=1; retina=1; cid=3; webp=1; sc_width=1536; wq_area=15_1213_0%7C3; visitkey=10913513581653556; PPRD_P=UUID.1589984592067854966288-EA.17053.57.1; wqmnx1=MDEyNjM1NHNxLnB1YWMveGxyYTF4MTA5OCY9MzFvdD1wb2F0dWFpZ3BfdW5wcm1wPTU3bW15MzE1M29hIHVuZDt1Qi84cGUvM0ggIG9yODQxbyByNzNyMmYtMktXVUkjJigp; __wga=1592637091644.1592637091644.1592634550196.1592634550196.1.2; __jdv=122270672%7Candroidpingouapp%7Ct_335139774%7Cpingouappshare%7CCopyURL%7C1592637091653; _tj_rvurl=https%3A//wq.jd.com/cube/front/activePublish/dream_factory_report/380556.html%3Fshare_ptag%3D1.1.1%26jxsid%3D15902028949811582480%26PTAG%3D17053.57.1%26_fromplatform%3Djxapp%26ad_od%3Dshare%26utm_source%3Dandroidpingouapp%26utm_medium%3Dpingouappshare%26utm_campaign%3Dt_335139774%26utm_term%3DCopyURL; shshshfp=7ed7f90cb117c645fe48d5c83cf6b6fb; shshshsID=4b44cb95ecd1a0136a0a8fd2b7c3d3f3_1_1592637095367',
     }
 
 
@@ -34,8 +34,8 @@ def collect_electric():
         ('_time', microsecond),
         ('_', microsecond2),
         ('g_login_type', '0'),
-        ('callback', 'jsonpCBKP'),
-        ('g_tk', '810636292'),
+        ('callback', 'jsonpCBKQQ'),
+        ('g_tk', '504778450'),
         ('g_ty', 'ls'),
     )
 
@@ -44,7 +44,7 @@ def collect_electric():
     print(response.text)
 
     # 根据返回结果处理
-    resultText = response.text.replace('try {jsonpCBKP(', '')
+    resultText = response.text.replace('try {jsonpCBKQQ(', '')
     resultText = resultText.replace(')} catch (e) {}', '')
     # resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
