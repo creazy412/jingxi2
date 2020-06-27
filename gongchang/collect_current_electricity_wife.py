@@ -42,7 +42,7 @@ def collect_electric():
     print(response.text)
 
     # 根据返回结果处理
-    resultText = response.text.replace('try {jsonpCBKQQ(', '')
+    resultText = response.text.replace('try {jsonpCBKQ(', '')
     resultText = resultText.replace(')} catch (e) {}', '')
     # resultText = resultText.replace(';', '')
     resultTextJson = json.loads(resultText)
